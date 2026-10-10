@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Student Administration Portal v2.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="app-layout">
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">CAMPUS ADMIN</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-menu">
+        <button class="nav-item active" data-view="dashboard" id="nav-dashboard">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+          </svg>
+          <span>Dashboard</span>
+        </button>
+
+        <button class="nav-item" data-view="students" id="nav-students">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          <span>Students</span>
+          <span class="nav-badge" id="badge-total-students">0</span>
+        </button>
+
+        <button class="nav-item" data-view="admissions" id="nav-admissions">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <line x1="19" y1="8" x2="19" y2="14" />
+            <line x1="22" y1="11" x2="16" y2="11" />
+          </svg>
+          <span>Admissions</span>
+        </button>
+
+        <button class="nav-item" data-view="documents" id="nav-documents">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+            <polyline points="10 9 9 9 8 9" />
+          </svg>
+          <span>Documents</span>
+          <span class="nav-badge warning" id="badge-missing-docs">0</span>
+        </button>
+
+        <button class="nav-item" data-view="fees" id="nav-fees">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="8" y1="12" x2="16" y2="12" />
+          </svg>
+          <span>Fees</span>
+          <span class="nav-badge alert" id="badge-pending-fees">0</span>
+        </button>
+
+        <button class="nav-item" data-view="scholarships" id="nav-scholarships">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="7" />
+            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+          </svg>
+          <span>Scholarships</span>
+          <span class="nav-badge info" id="badge-active-scholarships">0</span>
+        </button>
+
+        <button class="nav-item" data-view="settings" id="nav-settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+          </svg>
+          <span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="system-status-indicator">
+          <span class="status-dot"></span>
+          <span class="status-label">Backend Online (Port 3000)</span>
+        </div>
+        <div class="devops-badge">DevOps CIE Ready</div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <div class="main-wrapper">
+      <!-- TOP HEADER -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          <div>
+            <h1 class="header-title" id="page-heading">Dashboard Overview</h1>
+            <p class="header-subtitle">Academic Administration Desk · Academic Year 2024-2026</p>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <div class="header-search-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <input type="text" id="global-search-input" placeholder="Search by student name, roll number, or course..."
+              autocomplete="off">
+            <button class="clear-search-btn" id="clear-search-btn" title="Clear search"
+              style="display: none;">&times;</button>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="quick-stat-badge">
+            <span class="pulse-indicator"></span>
+            <span id="header-date">Today</span>
+          </div>
+          <div class="admin-profile">
+            <div class="admin-avatar">AD</div>
+            <div class="admin-info">
+              <span class="admin-name">Admin Desk</span>
+              <span class="admin-role">Academic Affairs</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN APP CONTAINER -->
+      <main class="content-container">
+
+        <!-- ==================== VIEW 1: DASHBOARD ==================== -->
+        <section class="view-section active" id="view-dashboard">
+          <!-- KPI Cards Grid -->
+          <div class="kpi-grid">
+            <div class="kpi-card" id="kpi-total-card">
+              <div class="kpi-icon icon-blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div class="kpi-details">
+                <span class="kpi-label">Total Students</span>
+                <span class="kpi-value" id="kpi-total-students">--</span>
+                <span class="kpi-meta">Active enrolled records</span>
+              </div>
+            </div>
+
+            <div class="kpi-card" id="kpi-pending-card">
+              <div class="kpi-icon icon-amber">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <line x1="12" y1="8" x2="12" y2="16" />
+                  <line x1="8" y1="12" x2="16" y2="12" />
+                </svg>
+              </div>
+              <div class="kpi-details">
+                <span class="kpi-label">Pending Fees</span>
+                <span class="kpi-value" id="kpi-pending-fees">--</span>
+                <span class="kpi-meta" id="kpi-pending-amount">₹0 Outstanding</span>
+              </div>
+            </div>
+
+            <div class="kpi-card" id="kpi-scholarship-card">
+              <div class="kpi-icon icon-purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="8" r="7" />
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                </svg>
+              </div>
+              <div class="kpi-details">
+                <span class="kpi-label">Active Scholarships</span>
+                <span class="kpi-value" id="kpi-active-scholarships">--</span>
+                <span class="kpi-meta">Applied &amp; Under Review</span>
+              </div>
+            </div>
+
+            <div class="kpi-card" id="kpi-docs-card">
+              <div class="kpi-icon icon-rose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+              </div>
+              <div class="kpi-details">
+                <span class="kpi-label">Missing Documents</span>
+                <span class="kpi-value" id="kpi-missing-docs">--</span>
+                <span class="kpi-meta">Incomplete compliance</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Analytics & Insights Grid -->
+          <div class="dashboard-grid">
+            <!-- Category Distribution -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Category Distribution</h3>
+                  <p class="card-subtitle">Demographic profile breakdown</p>
+                </div>
+                <span class="badge badge-info">Admission Cohort</span>
+              </div>
+              <div class="card-body">
+                <div class="distribution-bars" id="category-distribution-container">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Fee Collection Status -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">Fee Collection Status</h3>
+                  <p class="card-subtitle">Paid, Partial, and Unpaid distributions</p>
+                </div>
+                <button class="btn btn-sm btn-outline" id="btn-goto-fees">Fee Details &rarr;</button>
+              </div>
+              <div class="card-body">
+                <div class="distribution-bars" id="fee-distribution-container">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Required Section -->
+          <div class="card mt-4">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Action Required Alerts</h3>
+                <p class="card-subtitle">Real-time administration alerts requiring desk attention</p>
+              </div>
+              <span class="badge badge-warning" id="total-alerts-badge">Active Alerts</span>
+            </div>
+            <div class="card-body">
+              <div class="alerts-grid" id="action-required-container">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Admissions Table -->
+          <div class="card mt-4">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Recent Admissions</h3>
+                <p class="card-subtitle">Latest student registrations in the portal</p>
+              </div>
+              <div class="card-actions">
+                <button class="btn btn-sm btn-primary" id="btn-dash-add-student">+ New Admission</button>
+                <button class="btn btn-sm btn-outline" id="btn-goto-students">View All Students &rarr;</button>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Student</th>
+                      <th>Roll Number</th>
+                      <th>Course</th>
+                      <th>Category</th>
+                      <th>Fee Status</th>
+                      <th>Documents</th>
+                      <th>Scholarship</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-admissions-tbody">
+                    <!-- Populated by JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 2: STUDENTS ==================== -->
+        <section class="view-section" id="view-students">
+          <div class="card">
+            <!-- Filter & Search Toolbar -->
+            <div class="table-toolbar">
+              <div class="toolbar-search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" id="students-search-input" placeholder="Search by student, roll no, or course...">
+              </div>
+
+              <div class="toolbar-filters">
+                <div class="filter-group">
+                  <label for="filter-category">Category:</label>
+                  <select id="filter-category" class="filter-select">
+                    <option value="All">All Categories</option>
+                    <option value="General">General</option>
+                    <option value="SC">SC</option>
+                    <option value="ST">ST</option>
+                    <option value="OBC">OBC</option>
+                  </select>
+                </div>
+
+                <div class="filter-group">
+                  <label for="filter-fee-status">Fee Status:</label>
+                  <select id="filter-fee-status" class="filter-select">
+                    <option value="All">All Fee Status</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Partial">Partial</option>
+                    <option value="Unpaid">Unpaid</option>
+                  </select>
+                </div>
+
+                <div class="filter-group">
+                  <label for="filter-scholarship">Scholarship:</label>
+                  <select id="filter-scholarship" class="filter-select">
+                    <option value="All">All Statuses</option>
+                    <option value="Not Applied">Not Applied</option>
+                    <option value="Applied">Applied</option>
+                    <option value="Under Review">Under Review</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Rejected">Rejected</option>
+                  </select>
+                </div>
+
+                <div class="filter-group">
+                  <label for="filter-sort">Sort By:</label>
+                  <select id="filter-sort" class="filter-select">
+                    <option value="newest">Recently Enrolled</option>
+                    <option value="name-asc">Name (A &rarr; Z)</option>
+                    <option value="name-desc">Name (Z &rarr; A)</option>
+                    <option value="roll-asc">Roll Number</option>
+                    <option value="fee-desc">Highest Pending Fee</option>
+                  </select>
+                </div>
+
+                <button class="btn btn-outline" id="btn-reset-filters" title="Reset all filters">Reset</button>
+                <button class="btn btn-primary" id="btn-open-add-student-modal">+ Add Student</button>
+              </div>
+            </div>
+
+            <!-- Student Master Table -->
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="data-table" id="students-master-table">
+                  <thead>
+                    <tr>
+                      <th>Student</th>
+                      <th>Roll Number</th>
+                      <th>Course</th>
+                      <th>Category</th>
+                      <th>Fee Status</th>
+                      <th>Documents</th>
+                      <th>Scholarship</th>
+                      <th class="text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="students-table-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Empty state -->
+              <div class="empty-state" id="students-empty-state" style="display: none;">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <h3>No students match the criteria</h3>
+                <p>Try adjusting your search terms or clearing active filters.</p>
+                <button class="btn btn-outline mt-2"
+                  onclick="document.getElementById('btn-reset-filters').click()">Clear Filters</button>
+              </div>
+            </div>
+
+            <!-- Table Footer -->
+            <div class="table-footer">
+              <span id="students-table-count">Showing 0 of 0 students</span>
+              <span class="table-note">Direct CRUD integration with Express API &amp; JSON data store</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 3: ADMISSIONS ==================== -->
+        <section class="view-section" id="view-admissions">
+          <div class="admission-layout">
+            <!-- Admission Registration Form -->
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3 class="card-title">New Student Admission Desk</h3>
+                  <p class="card-subtitle">Direct candidate enrollment &amp; academic registration</p>
+                </div>
+                <span class="badge badge-primary">Form v2.0</span>
+              </div>
+              <div class="card-body">
+                <form id="admission-form">
+                  <div class="form-row">
+                    <div class="form-group col-6">
+                      <label for="adm-student-name">Student Full Name <span class="required">*</span></label>
+                      <input type="text" id="adm-student-name" required placeholder="e.g. Diya Patel"
+                        autocomplete="off">
+                    </div>
+                    <div class="form-group col-6">
+                      <label for="adm-roll-number">Roll Number / Enrollment ID <span class="required">*</span></label>
+                      <input type="text" id="adm-roll-number" required placeholder="e.g. 2026-CS-0201"
+                        autocomplete="off">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-6">
+                      <label for="adm-course">Program / Course <span class="required">*</span></label>
+                      <select id="adm-course" required>
+                        <option value="">Select Academic Program</option>
+                        <option value="B.Tech Computer Science">B.Tech Computer Science</option>
+                        <option value="B.Tech Information Technology">B.Tech Information Technology</option>
+                        <option value="B.Tech AI & Data Science">B.Tech AI &amp; Data Science</option>
+                        <option value="B.Tech Electronics & Comm.">B.Tech Electronics &amp; Comm.</option>
+                        <option value="B.Tech Mechanical Eng.">B.Tech Mechanical Eng.</option>
+                        <option value="B.Tech Civil Eng.">B.Tech Civil Eng.</option>
+                        <option value="Bachelor of Computer Apps">Bachelor of Computer Apps (BCA)</option>
+                        <option value="Master of Computer Apps">Master of Computer Apps (MCA)</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-3">
+                      <label for="adm-academic-year">Academic Year <span class="required">*</span></label>
+                      <select id="adm-academic-year" required>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-3">
+                      <label for="adm-enrollment-year">Enrollment Year <span class="required">*</span></label>
+                      <input type="number" id="adm-enrollment-year" value="2026" min="2020" max="2030" required>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-4">
+                      <label for="adm-category">Student Category <span class="required">*</span></label>
+                      <select id="adm-category" required>
+                        <option value="General">General</option>
+                        <option value="SC">SC (Scheduled Caste)</option>
+                        <option value="ST">ST (Scheduled Tribe)</option>
+                        <option value="OBC">OBC (Other Backward Class)</option>
+                      </select>
+                      <small class="form-help">Category changes automatically update required documents.</small>
+                    </div>
+
+                    <div class="form-group col-4">
+                      <label for="adm-total-fee">Total Assessed Fee (₹) <span class="required">*</span></label>
+                      <input type="number" id="adm-total-fee" min="0" step="500" value="85000" required>
+                    </div>
+
+                    <div class="form-group col-4">
+                      <label for="adm-paid-fee">Initial Paid Fee (₹) <span class="required">*</span></label>
+                      <input type="number" id="adm-paid-fee" min="0" step="500" value="0" required>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-6">
+                      <label for="adm-scholarship-status">Scholarship Status</label>
+                      <select id="adm-scholarship-status">
+                        <option value="Not Applied">Not Applied</option>
+                        <option value="Applied">Applied</option>
+                        <option value="Under Review">Under Review</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Rejected">Rejected</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-6">
+                      <label>Calculated Fee Status Preview</label>
+                      <div class="fee-preview-box">
+                        <div>Remaining: <strong id="adm-preview-remaining">₹85,000</strong></div>
+                        <div>Status: <span class="badge badge-unpaid" id="adm-preview-badge">Unpaid</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Dynamic Document Compliance Checklist Preview -->
+                  <div class="form-group mt-3">
+                    <label>Mandatory Document Requirements (<span id="adm-category-label">General: 4
+                        Documents</span>)</label>
+                    <div class="docs-checklist-box" id="adm-documents-checklist">
+                      <!-- Dynamically rendered based on category -->
+                    </div>
+                  </div>
+
+                  <div class="form-actions mt-4">
+                    <button type="reset" class="btn btn-outline" id="adm-reset-btn">Reset Form</button>
+                    <button type="submit" class="btn btn-primary" id="adm-submit-btn">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      Confirm &amp; Register Student
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Admissions Info & Guidelines -->
+            <div class="admission-sidebar">
+              <div class="card mb-4">
+                <div class="card-header">
+                  <h4 class="card-title">Admission Policy Rules</h4>
+                </div>
+                <div class="card-body">
+                  <div class="policy-note">
+                    <strong>General Category Requirements:</strong>
+                    <ul>
+                      <li>Admission Form</li>
+                      <li>ID Card</li>
+                      <li>Academic Transcript</li>
+                      <li>Fee Receipt</li>
+                    </ul>
+                  </div>
+                  <div class="policy-note mt-3">
+                    <strong>SC / ST / OBC Requirements:</strong>
+                    <p class="text-sm">Mandatory category verification pursuant to State/Central scholarship
+                      eligibility:</p>
+                    <ul>
+                      <li>Standard 4 Documents</li>
+                      <li><strong>Category Certificate</strong> (Valid Issuance)</li>
+                      <li><strong>Income Certificate</strong> (Recent Fiscal Year)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Payment Verification Policy</h4>
+                </div>
+                <div class="card-body text-sm">
+                  <p>Payment calculation and verification are decoupled in the portal.</p>
+                  <p class="mt-2">When a student pays full fees (Remaining Fee = 0), an administrator must verify the
+                    physical bank challan or gateway UTR before issuing clearance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 4: DOCUMENTS ==================== -->
+        <section class="view-section" id="view-documents">
+          <div class="card">
+            <div class="table-toolbar">
+              <div>
+                <h3 class="card-title">Document Compliance Tracker</h3>
+                <p class="card-subtitle">Monitor and verify student mandatory file submissions</p>
+              </div>
+              <div class="toolbar-filters">
+                <select id="doc-filter-compliance" class="filter-select">
+                  <option value="all">All Students</option>
+                  <option value="missing" selected>Incomplete Compliance (Missing Documents)</option>
+                  <option value="complete">100% Compliant Only</option>
+                </select>
+                <select id="doc-filter-category" class="filter-select">
+                  <option value="All">All Categories</option>
+                  <option value="General">General</option>
+                  <option value="SC">SC</option>
+                  <option value="ST">ST</option>
+                  <option value="OBC">OBC</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="data-table" id="documents-table">
+                  <thead>
+                    <tr>
+                      <th>Student</th>
+                      <th>Category</th>
+                      <th>Required Documents Checklist</th>
+                      <th>Compliance %</th>
+                      <th class="text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="documents-table-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 5: FEES ==================== -->
+        <section class="view-section" id="view-fees">
+          <!-- Fee Financial KPI Highlights -->
+          <div class="kpi-grid mb-4">
+            <div class="kpi-card">
+              <div class="kpi-icon icon-blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+              </div>
+              <div class="kpi-details">
+                <span class="kpi-label">Total Assessed Fees</span>
+                <span class="kpi-value" id="fee-total-assessed">₹0</span>
+                <span class="kpi-meta">All enrolled batches</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-icon icon-green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <div class="kpi-details">
+                <span class="kpi-label">Collected Fees</span>
+                <span class="kpi-value" id="fee-total-collected">₹0</span>
+                <span class="kpi-meta">Processed payments</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-icon icon-amber">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+              </div>
+              <div class="kpi-details">
+                <span class="kpi-label">Pending / Outstanding</span>
+                <span class="kpi-value" id="fee-total-pending">₹0</span>
+                <span class="kpi-meta">Due for collection</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-icon icon-purple">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+              </div>
+              <div class="kpi-details">
+                <span class="kpi-label">Awaiting Verification</span>
+                <span class="kpi-value" id="fee-unverified-count">0</span>
+                <span class="kpi-meta">Paid in full, unverified</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="table-toolbar">
+              <div>
+                <h3 class="card-title">Fee Reconciliation &amp; Verification Desk</h3>
+                <p class="card-subtitle">Verify fully paid accounts and collect outstanding dues</p>
+              </div>
+              <div class="toolbar-filters">
+                <select id="fee-table-filter" class="filter-select">
+                  <option value="all">All Fee Accounts</option>
+                  <option value="unverified" selected>Awaiting Verification (Paid · Verify)</option>
+                  <option value="partial">Partial Payment Accounts</option>
+                  <option value="unpaid">Unpaid Accounts</option>
+                  <option value="paid-verified">Verified Paid Accounts</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="data-table" id="fees-table">
+                  <thead>
+                    <tr>
+                      <th>Student</th>
+                      <th>Roll Number</th>
+                      <th>Total Fee</th>
+                      <th>Paid Fee</th>
+                      <th>Remaining Fee</th>
+                      <th>Fee Status</th>
+                      <th>Payment Verification</th>
+                      <th class="text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="fees-table-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 6: SCHOLARSHIPS ==================== -->
+        <section class="view-section" id="view-scholarships">
+          <div class="card">
+            <div class="table-toolbar">
+              <div>
+                <h3 class="card-title">Scholarship Administration Desk</h3>
+                <p class="card-subtitle">Review, approve, and audit student scholarship claims</p>
+              </div>
+              <div class="toolbar-filters">
+                <select id="scholarship-table-filter" class="filter-select">
+                  <option value="all">All Applications</option>
+                  <option value="Under Review" selected>Under Review (Priority)</option>
+                  <option value="Applied">Applied (New)</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Rejected">Rejected</option>
+                  <option value="Not Applied">Not Applied</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="data-table" id="scholarships-table">
+                  <thead>
+                    <tr>
+                      <th>Student</th>
+                      <th>Roll Number</th>
+                      <th>Course</th>
+                      <th>Category</th>
+                      <th>Fee Outstanding</th>
+                      <th>Current Scholarship Status</th>
+                      <th class="text-right">Desk Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="scholarships-table-tbody">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================== VIEW 7: SETTINGS ==================== -->
+        <section class="view-section" id="view-settings">
+          <div class="settings-grid">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Portal System &amp; DevOps Information</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-list">
+                  <div class="info-item">
+                    <span class="info-label">Application Name</span>
+                    <span class="info-val">College Student Administration Portal v2.0</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Backend Architecture</span>
+                    <span class="info-val">Node.js + Express REST API</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Data Persistence</span>
+                    <span class="info-val">JSON File Storage (<code>data/students.json</code>)</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Health Endpoint</span>
+                    <span class="info-val"><a href="/health" target="_blank" class="text-link">/health (JSON Status
+                        &amp; Uptime) &rarr;</a></span>
+                  </div>
+                  <div class="info-item">
+                    <span class="info-label">Metrics Endpoint</span>
+                    <span class="info-val"><a href="/metrics" target="_blank" class="text-link">/metrics (Prometheus
+                        Format) &rarr;</a></span>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-4 border-top">
+                  <h4 class="text-sm font-semibold mb-2">DevOps Pipeline Readiness</h4>
+                  <p class="text-sm text-muted">
+                    This portal is designed to seamlessly integrate into:
+                    <br>
+                    <strong>Git &rarr; GitHub &rarr; Jenkins CI/CD &rarr; Docker &rarr; Kubernetes &rarr; Prometheus
+                      &rarr; Grafana</strong>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Data Administration</h3>
+              </div>
+              <div class="card-body">
+                <p class="text-sm text-muted mb-4">Manage local JSON storage and refresh active metrics cache.</p>
+
+                <div class="action-buttons-vertical">
+                  <button class="btn btn-outline" id="btn-refresh-cache">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="23 4 23 10 17 10" />
+                      <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                    </svg>
+                    Refresh Student Cache &amp; Recalculate KPIs
+                  </button>
+
+                  <a href="/api/students" target="_blank" class="btn btn-outline">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Export / View Raw Students JSON
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 1: STUDENT PROFILE ==================== -->
+  <div class="modal-backdrop" id="modal-student-profile" style="display: none;">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <div class="profile-header-title">
+          <div class="profile-avatar" id="modal-profile-avatar">AS</div>
+          <div>
+            <h3 class="modal-title" id="modal-profile-name">Student Profile</h3>
+            <p class="modal-subtitle" id="modal-profile-subtitle">Roll Number · Course</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" data-close-modal>&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Section 1: Academic & Personal Info -->
+        <div class="profile-section">
+          <h4 class="section-heading">Academic &amp; Enrollment Information</h4>
+          <div class="profile-info-grid">
+            <div class="info-block">
+              <span class="label">Roll Number</span>
+              <span class="value" id="profile-roll">--</span>
+            </div>
+            <div class="info-block">
+              <span class="label">Course</span>
+              <span class="value" id="profile-course">--</span>
+            </div>
+            <div class="info-block">
+              <span class="label">Academic Year</span>
+              <span class="value" id="profile-academic-year">--</span>
+            </div>
+            <div class="info-block">
+              <span class="label">Enrollment Year</span>
+              <span class="value" id="profile-enrollment-year">--</span>
+            </div>
+            <div class="info-block">
+              <span class="label">Category</span>
+              <span class="value" id="profile-category">--</span>
+            </div>
+            <div class="info-block">
+              <span class="label">Registration Date</span>
+              <span class="value" id="profile-created">--</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Fee Information -->
+        <div class="profile-section">
+          <h4 class="section-heading">Fee &amp; Payment Status</h4>
+          <div class="fee-card-highlight">
+            <div class="fee-kpi-item">
+              <span class="fee-label">Total Fee</span>
+              <span class="fee-val" id="profile-total-fee">₹0</span>
+            </div>
+            <div class="fee-kpi-item">
+              <span class="fee-label">Paid Fee</span>
+              <span class="fee-val text-success" id="profile-paid-fee">₹0</span>
+            </div>
+            <div class="fee-kpi-item">
+              <span class="fee-label">Remaining Fee</span>
+              <span class="fee-val text-danger" id="profile-remaining-fee">₹0</span>
+            </div>
+            <div class="fee-kpi-item">
+              <span class="fee-label">Fee Status</span>
+              <span id="profile-fee-status-badge">--</span>
+            </div>
+          </div>
+
+          <!-- Payment Verification Bar -->
+          <div class="payment-verify-box mt-3" id="profile-verify-box">
+            <div class="verify-status" id="profile-verify-status-text">
+              <!-- Rendered via JS -->
+            </div>
+            <div id="profile-verify-action-container">
+              <!-- Verify button if eligible -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Document Compliance -->
+        <div class="profile-section">
+          <div class="section-heading-row">
+            <h4 class="section-heading">Document Compliance Checklist</h4>
+            <div class="completion-pill" id="profile-doc-completion-badge">Completion: 0%</div>
+          </div>
+
+          <div class="progress-bar-container mt-2 mb-3">
+            <div class="progress-bar-fill" id="profile-doc-progress-bar" style="width: 0%;"></div>
+          </div>
+
+          <p class="text-xs text-muted mb-2">Click on any document status pill to toggle Received &harr; Pending.</p>
+          <div class="doc-checklist-interactive" id="profile-doc-checklist">
+            <!-- Dynamic interactive checklist -->
+          </div>
+        </div>
+
+        <!-- Section 4: Scholarship -->
+        <div class="profile-section">
+          <h4 class="section-heading">Scholarship Status</h4>
+          <div class="scholarship-profile-row">
+            <div>
+              <span class="label">Current Status:</span>
+              <span id="profile-scholarship-badge">--</span>
+            </div>
+            <div class="scholarship-quick-action">
+              <label for="profile-scholarship-select" class="text-xs text-muted">Update Status:</label>
+              <select id="profile-scholarship-select" class="filter-select select-sm">
+                <option value="Not Applied">Not Applied</option>
+                <option value="Applied">Applied</option>
+                <option value="Under Review">Under Review</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+              <button class="btn btn-sm btn-outline" id="btn-save-profile-scholarship">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-outline" data-close-modal>Close</button>
+        <button class="btn btn-primary" id="btn-profile-edit-student">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+          </svg>
+          Edit Student Details
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: ADD / EDIT STUDENT ==================== -->
+  <div class="modal-backdrop" id="modal-student-form" style="display: none;">
+    <div class="modal-dialog modal-md">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="form-modal-title">Add New Student</h3>
+          <p class="modal-subtitle" id="form-modal-subtitle">Enter student academic and fee information</p>
+        </div>
+        <button class="modal-close-btn" data-close-modal>&times;</button>
+      </div>
+
+      <form id="student-edit-form">
+        <input type="hidden" id="form-student-id">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col-12">
+              <label for="form-student-name">Student Full Name <span class="required">*</span></label>
+              <input type="text" id="form-student-name" required placeholder="Full Name" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="form-roll-number">Roll Number <span class="required">*</span></label>
+              <input type="text" id="form-roll-number" required placeholder="e.g. 2024-CS-0101" autocomplete="off">
+            </div>
+            <div class="form-group col-6">
+              <label for="form-course">Course / Department <span class="required">*</span></label>
+              <select id="form-course" required>
+                <option value="B.Tech Computer Science">B.Tech Computer Science</option>
+                <option value="B.Tech Information Technology">B.Tech Information Technology</option>
+                <option value="B.Tech AI & Data Science">B.Tech AI &amp; Data Science</option>
+                <option value="B.Tech Electronics & Comm.">B.Tech Electronics &amp; Comm.</option>
+                <option value="B.Tech Mechanical Eng.">B.Tech Mechanical Eng.</option>
+                <option value="B.Tech Civil Eng.">B.Tech Civil Eng.</option>
+                <option value="Bachelor of Computer Apps">Bachelor of Computer Apps (BCA)</option>
+                <option value="Master of Computer Apps">Master of Computer Apps (MCA)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="form-academic-year">Academic Year <span class="required">*</span></label>
+              <select id="form-academic-year" required>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
+            </div>
+            <div class="form-group col-6">
+              <label for="form-enrollment-year">Enrollment Year <span class="required">*</span></label>
+              <input type="number" id="form-enrollment-year" required min="2020" max="2030">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="form-category">Category <span class="required">*</span></label>
+              <select id="form-category" required>
+                <option value="General">General</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="OBC">OBC</option>
+              </select>
+            </div>
+            <div class="form-group col-6">
+              <label for="form-scholarship-status">Scholarship Status</label>
+              <select id="form-scholarship-status">
+                <option value="Not Applied">Not Applied</option>
+                <option value="Applied">Applied</option>
+                <option value="Under Review">Under Review</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label for="form-total-fee">Total Fee (₹) <span class="required">*</span></label>
+              <input type="number" id="form-total-fee" min="0" step="500" required>
+            </div>
+            <div class="form-group col-6">
+              <label for="form-paid-fee">Paid Fee (₹) <span class="required">*</span></label>
+              <input type="number" id="form-paid-fee" min="0" step="500" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Category Documents Rule</label>
+            <div class="category-rule-indicator" id="form-category-rule-text">
+              General category: 4 standard compliance files required.
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary" id="form-submit-btn">Save Student</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 3: DELETE CONFIRMATION ==================== -->
+  <div class="modal-backdrop" id="modal-delete-confirm" style="display: none;">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <h3 class="modal-title text-danger">Delete Student Record</h3>
+        <button class="modal-close-btn" data-close-modal>&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to permanently delete this student record from the administration system?</p>
+        <div class="delete-target-box mt-3 mb-2" id="delete-target-preview">
+          <!-- Filled by JS -->
+        </div>
+        <p class="text-xs text-muted">This action will immediately update <code>students.json</code> and cannot be
+          undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" data-close-modal>Cancel</button>
+        <button class="btn btn-danger" id="btn-confirm-delete">Confirm Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION CONTAINER ==================== -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Application Logic -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>

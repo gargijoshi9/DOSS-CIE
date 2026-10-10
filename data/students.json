@@ -1,0 +1,650 @@
+[
+  {
+    "id": "std-1001",
+    "studentName": "Aarav Sharma",
+    "rollNumber": "2024-CS-0101",
+    "course": "B.Tech Computer Science",
+    "academicYear": "2nd Year",
+    "enrollmentYear": 2024,
+    "category": "General",
+    "totalFee": 85000,
+    "paidFee": 85000,
+    "paymentVerified": true,
+    "scholarshipStatus": "Not Applied",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2024-08-10T09:30:00.000Z"
+  },
+  {
+    "id": "std-1002",
+    "studentName": "Diya Patel",
+    "rollNumber": "2024-IT-0102",
+    "course": "B.Tech Information Technology",
+    "academicYear": "2nd Year",
+    "enrollmentYear": 2024,
+    "category": "OBC",
+    "totalFee": 80000,
+    "paidFee": 40000,
+    "paymentVerified": false,
+    "scholarshipStatus": "Under Review",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Pending"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      },
+      {
+        "name": "Category Certificate",
+        "status": "Received"
+      },
+      {
+        "name": "Income Certificate",
+        "status": "Pending"
+      }
+    ],
+    "createdAt": "2024-08-11T10:15:00.000Z"
+  },
+  {
+    "id": "std-1003",
+    "studentName": "Rohan Verma",
+    "rollNumber": "2023-EC-0103",
+    "course": "B.Tech Electronics & Comm.",
+    "academicYear": "3rd Year",
+    "enrollmentYear": 2023,
+    "category": "SC",
+    "totalFee": 75000,
+    "paidFee": 75000,
+    "paymentVerified": false,
+    "scholarshipStatus": "Approved",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      },
+      {
+        "name": "Category Certificate",
+        "status": "Received"
+      },
+      {
+        "name": "Income Certificate",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2023-08-05T11:00:00.000Z"
+  },
+  {
+    "id": "std-1004",
+    "studentName": "Ananya Iyer",
+    "rollNumber": "2025-CS-0104",
+    "course": "B.Tech Computer Science",
+    "academicYear": "1st Year",
+    "enrollmentYear": 2025,
+    "category": "General",
+    "totalFee": 90000,
+    "paidFee": 0,
+    "paymentVerified": false,
+    "scholarshipStatus": "Not Applied",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Pending"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Pending"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Pending"
+      }
+    ],
+    "createdAt": "2025-07-20T14:20:00.000Z"
+  },
+  {
+    "id": "std-1005",
+    "studentName": "Vikram Singh",
+    "rollNumber": "2023-ME-0105",
+    "course": "B.Tech Mechanical Eng.",
+    "academicYear": "3rd Year",
+    "enrollmentYear": 2023,
+    "category": "General",
+    "totalFee": 75000,
+    "paidFee": 75000,
+    "paymentVerified": true,
+    "scholarshipStatus": "Not Applied",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2023-08-12T09:45:00.000Z"
+  },
+  {
+    "id": "std-1006",
+    "studentName": "Priya Nair",
+    "rollNumber": "2024-BCA-0106",
+    "course": "Bachelor of Computer Apps",
+    "academicYear": "2nd Year",
+    "enrollmentYear": 2024,
+    "category": "OBC",
+    "totalFee": 60000,
+    "paidFee": 30000,
+    "paymentVerified": false,
+    "scholarshipStatus": "Applied",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      },
+      {
+        "name": "Category Certificate",
+        "status": "Received"
+      },
+      {
+        "name": "Income Certificate",
+        "status": "Pending"
+      }
+    ],
+    "createdAt": "2024-08-18T12:30:00.000Z"
+  },
+  {
+    "id": "std-1007",
+    "studentName": "Kabir Mehta",
+    "rollNumber": "2025-AI-0107",
+    "course": "B.Tech AI & Data Science",
+    "academicYear": "1st Year",
+    "enrollmentYear": 2025,
+    "category": "General",
+    "totalFee": 95000,
+    "paidFee": 95000,
+    "paymentVerified": false,
+    "scholarshipStatus": "Not Applied",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Pending"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2025-07-25T15:10:00.000Z"
+  },
+  {
+    "id": "std-1008",
+    "studentName": "Sneha Mukherjee",
+    "rollNumber": "2022-CS-0108",
+    "course": "B.Tech Computer Science",
+    "academicYear": "4th Year",
+    "enrollmentYear": 2022,
+    "category": "ST",
+    "totalFee": 70000,
+    "paidFee": 70000,
+    "paymentVerified": true,
+    "scholarshipStatus": "Approved",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      },
+      {
+        "name": "Category Certificate",
+        "status": "Received"
+      },
+      {
+        "name": "Income Certificate",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2022-08-01T10:00:00.000Z"
+  },
+  {
+    "id": "std-1009",
+    "studentName": "Rahul Deshmukh",
+    "rollNumber": "2023-CE-0109",
+    "course": "B.Tech Civil Eng.",
+    "academicYear": "3rd Year",
+    "enrollmentYear": 2023,
+    "category": "OBC",
+    "totalFee": 70000,
+    "paidFee": 35000,
+    "paymentVerified": false,
+    "scholarshipStatus": "Rejected",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      },
+      {
+        "name": "Category Certificate",
+        "status": "Pending"
+      },
+      {
+        "name": "Income Certificate",
+        "status": "Pending"
+      }
+    ],
+    "createdAt": "2023-08-14T11:40:00.000Z"
+  },
+  {
+    "id": "std-1010",
+    "studentName": "Pooja Gupta",
+    "rollNumber": "2024-MCA-0110",
+    "course": "Master of Computer Apps",
+    "academicYear": "1st Year",
+    "enrollmentYear": 2024,
+    "category": "General",
+    "totalFee": 85000,
+    "paidFee": 50000,
+    "paymentVerified": false,
+    "scholarshipStatus": "Under Review",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2024-09-02T13:15:00.000Z"
+  },
+  {
+    "id": "std-1011",
+    "studentName": "Arjun Reddy",
+    "rollNumber": "2024-EE-0111",
+    "course": "B.Tech Electrical Eng.",
+    "academicYear": "2nd Year",
+    "enrollmentYear": 2024,
+    "category": "SC",
+    "totalFee": 75000,
+    "paidFee": 0,
+    "paymentVerified": false,
+    "scholarshipStatus": "Applied",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Pending"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Pending"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Pending"
+      },
+      {
+        "name": "Category Certificate",
+        "status": "Received"
+      },
+      {
+        "name": "Income Certificate",
+        "status": "Pending"
+      }
+    ],
+    "createdAt": "2024-08-22T16:00:00.000Z"
+  },
+  {
+    "id": "std-1012",
+    "studentName": "Neha Kulkarni",
+    "rollNumber": "2023-CS-0112",
+    "course": "B.Tech Computer Science",
+    "academicYear": "3rd Year",
+    "enrollmentYear": 2023,
+    "category": "General",
+    "totalFee": 85000,
+    "paidFee": 85000,
+    "paymentVerified": true,
+    "scholarshipStatus": "Not Applied",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2023-08-08T10:45:00.000Z"
+  },
+  {
+    "id": "std-1013",
+    "studentName": "Aditya Joshi",
+    "rollNumber": "2025-IT-0113",
+    "course": "B.Tech Information Technology",
+    "academicYear": "1st Year",
+    "enrollmentYear": 2025,
+    "category": "General",
+    "totalFee": 90000,
+    "paidFee": 45000,
+    "paymentVerified": false,
+    "scholarshipStatus": "Not Applied",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2025-08-01T14:00:00.000Z"
+  },
+  {
+    "id": "std-1014",
+    "studentName": "Kavita Sen",
+    "rollNumber": "2024-EC-0114",
+    "course": "B.Tech Electronics & Comm.",
+    "academicYear": "2nd Year",
+    "enrollmentYear": 2024,
+    "category": "ST",
+    "totalFee": 75000,
+    "paidFee": 75000,
+    "paymentVerified": false,
+    "scholarshipStatus": "Under Review",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      },
+      {
+        "name": "Category Certificate",
+        "status": "Received"
+      },
+      {
+        "name": "Income Certificate",
+        "status": "Pending"
+      }
+    ],
+    "createdAt": "2024-08-25T10:20:00.000Z"
+  },
+  {
+    "id": "std-1015",
+    "studentName": "Manish Kumar",
+    "rollNumber": "2022-ME-0115",
+    "course": "B.Tech Mechanical Eng.",
+    "academicYear": "4th Year",
+    "enrollmentYear": 2022,
+    "category": "OBC",
+    "totalFee": 70000,
+    "paidFee": 70000,
+    "paymentVerified": true,
+    "scholarshipStatus": "Approved",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      },
+      {
+        "name": "Category Certificate",
+        "status": "Received"
+      },
+      {
+        "name": "Income Certificate",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2022-07-28T09:10:00.000Z"
+  },
+  {
+    "id": "std-1016",
+    "studentName": "Ritu Choudhury",
+    "rollNumber": "2025-CS-0116",
+    "course": "B.Tech Computer Science",
+    "academicYear": "1st Year",
+    "enrollmentYear": 2025,
+    "category": "General",
+    "totalFee": 95000,
+    "paidFee": 95000,
+    "paymentVerified": true,
+    "scholarshipStatus": "Not Applied",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2025-08-04T11:00:00.000Z"
+  },
+  {
+    "id": "std-1017",
+    "studentName": "Tarun Balaji",
+    "rollNumber": "2023-BCA-0117",
+    "course": "Bachelor of Computer Apps",
+    "academicYear": "3rd Year",
+    "enrollmentYear": 2023,
+    "category": "SC",
+    "totalFee": 60000,
+    "paidFee": 20000,
+    "paymentVerified": false,
+    "scholarshipStatus": "Applied",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Pending"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      },
+      {
+        "name": "Category Certificate",
+        "status": "Received"
+      },
+      {
+        "name": "Income Certificate",
+        "status": "Pending"
+      }
+    ],
+    "createdAt": "2023-08-20T15:30:00.000Z"
+  },
+  {
+    "id": "std-1018",
+    "studentName": "Meera Swaminathan",
+    "rollNumber": "2024-AI-0118",
+    "course": "B.Tech AI & Data Science",
+    "academicYear": "2nd Year",
+    "enrollmentYear": 2024,
+    "category": "General",
+    "totalFee": 90000,
+    "paidFee": 45000,
+    "paymentVerified": false,
+    "scholarshipStatus": "Under Review",
+    "documents": [
+      {
+        "name": "Admission Form",
+        "status": "Received"
+      },
+      {
+        "name": "ID Card",
+        "status": "Received"
+      },
+      {
+        "name": "Academic Transcript",
+        "status": "Received"
+      },
+      {
+        "name": "Fee Receipt",
+        "status": "Received"
+      }
+    ],
+    "createdAt": "2024-08-15T10:00:00.000Z"
+  }
+]
