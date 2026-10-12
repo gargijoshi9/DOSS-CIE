@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: college-portal
+  labels:
+    app: college-portal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: college-portal
+  template:
+    metadata:
+      labels:
+        app: college-portal
+    spec:
+      containers:
+        - name: college-portal
+          image: doss-cie:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: PORT
+              value: "3000"
+          volumeMounts:
+            - name: student-data
+              mountPath: /app/data
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+      volumes:
+        - name: student-data
+          persistentVolumeClaim:
+            claimName: college-portal-data
