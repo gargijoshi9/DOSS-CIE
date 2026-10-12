@@ -1,0 +1,15 @@
+services:
+  college-portal:
+    build: .
+    container_name: college-student-portal
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    volumes:
+      - college_portal_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  college_portal_data:
